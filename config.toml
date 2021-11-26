@@ -1,3 +1,84 @@
-baseURL = 'http://example.org/'
-languageCode = 'en-us'
-title = 'My New Hugo Site'
+################################# Site configuration ###################
+baseURL = 'https://doc.fs.neo.org/'
+# disable language
+disableLanguages = []
+
+title = 'NeoFS Documentation'
+theme = 'dot-hugo'
+
+# unsafe html
+[markup.goldmark.renderer]
+unsafe = true
+
+############################# Default Parameters ##########################
+[params]
+# logo is for all page
+logo = 'images/NeoFS.svg'
+
+# customize color
+primary_color = "#02007e"
+body_color = "#f9f9f9"
+text_color = "#636363"
+text_color_dark = "#242738"
+white_color = "#ffffff"
+light_color = "#f8f9fa"
+
+# font family
+font_family = "lato" # Choose font family from : https://fonts.google.com/
+
+# contact form action
+contact_form_action = "#" # contact form works with : https://formspree.io
+
+
+################################ English Language ######################
+[Languages.en]
+languageName = "En"
+languageCode = "en-us"
+weight = 1
+copyright = "Copyright &copy; 2018-2021 [NSPCC](https://nspcc.ru/)"
+
+# banner
+[Languages.en.params.banner]
+title = "NeoFS Documentation"
+subtitle = "Articles and answers from developers and user community"
+#bg_image = "images/header.svg"
+placeholder = "Have a question? Just ask here or enter terms"
+
+################## english navigation #################
+[[Languages.en.menu.main]]
+name = "Documentation"
+url = "/"
+weight = 1
+
+[[Languages.en.menu.main]]
+name = "HOWTO"
+url = "howto"
+weight = 2
+
+[[Languages.en.menu.main]]
+name = "Faq"
+url = "faq"
+weight = 3
+
+[[Languages.en.menu.main]]
+name = "contact"
+url = "contact"
+weight = 4
+
+  [[Languages.en.menu.main]]
+  parent = "Documentation"
+  name = "Storage Node"
+  url = "node"
+  weight = 1
+
+  [[Languages.en.menu.main]]
+  parent = "Documentation"
+  name = "Protocol Gateways"
+  url = "gw"
+  weight = 2
+
+  [[Languages.en.menu.main]]
+  parent = "Documentation"
+  name = "SDK and API"
+  url = "sdk"
+  weight = 3
