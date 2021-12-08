@@ -1,0 +1,9 @@
+deploy:
+ site_container: FTF4ARGjNPpxqf7Gebz5zvcRw3obu9aTq6WZLG9nkpd9 # Specify container ID where web site will be stored
+ config_container: F7FAJTctxXc5AqQV35HNN9VNXYetHHEaYi41c3SAGMq9  # Specify container ID where web site config will be stored
+ new_container: # This section is used if 'container' param above is empty
+  nicename:  # Specify container nicename in CDN zone, requires additional fee
+  placement_policy: "REP 3" # Specify placement policy if prefer to create new container (default "REP 3")
+  basic_acl: 0x1fbf8cff # Specify basic acl for new container (default read-only "0x1FBF8CFF")
+source:
+  local: public

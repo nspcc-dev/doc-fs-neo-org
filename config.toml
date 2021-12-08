@@ -29,6 +29,16 @@ font_family = "lato" # Choose font family from : https://fonts.google.com/
 # contact form action
 contact_form_action = "#" # contact form works with : https://formspree.io
 
+############################## social links ##############################
+[[params.social]]
+icon = "ti-github" # themify icon pack : https://themify.me/themify-icons
+name = "Github"
+link = "https://github.com/nspcc-dev/doc-fs-neo-org"
+
+[[params.social]]
+icon = "ti-twitter-alt" # themify icon pack : https://themify.me/themify-icons
+name = "Twitter"
+link = "https://twitter.com/neospcc"
 
 ################################ English Language ######################
 [Languages.en]
@@ -50,35 +60,19 @@ name = "Documentation"
 url = "/"
 weight = 1
 
+  [[Languages.en.menu.main]]
+  parent = "Documentation"
+  name = "Protocol Gateways"
+  url = "gw"
+  weight = 1
+
 [[Languages.en.menu.main]]
 name = "HOWTO"
 url = "howto"
 weight = 2
 
 [[Languages.en.menu.main]]
-name = "Faq"
-url = "faq"
-weight = 3
-
-[[Languages.en.menu.main]]
-name = "contact"
-url = "contact"
-weight = 4
-
-  [[Languages.en.menu.main]]
-  parent = "Documentation"
-  name = "Storage Node"
-  url = "node"
+  parent = "HOWTO"
+  name = "Site hosting"
+  url = "hosting"
   weight = 1
-
-  [[Languages.en.menu.main]]
-  parent = "Documentation"
-  name = "Protocol Gateways"
-  url = "gw"
-  weight = 2
-
-  [[Languages.en.menu.main]]
-  parent = "Documentation"
-  name = "SDK and API"
-  url = "sdk"
-  weight = 3
