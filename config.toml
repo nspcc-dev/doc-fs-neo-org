@@ -57,7 +57,7 @@ placeholder = "Have a question? Just ask here or enter terms"
 ################## english navigation #################
 [[Languages.en.menu.main]]
 name = "Concepts"
-url = "concepts"
+url = "concepts/"
 weight = 1
 
   # [[Languages.en.menu.main]]
@@ -68,34 +68,34 @@ weight = 1
 
 [[Languages.en.menu.main]]
 name = "Nodes"
-url = "nodes"
+url = "nodes/"
 weight = 2
 
   [[Languages.en.menu.main]]
   parent = "Nodes"
   name = "Storage"
-  url = "nodes/stor"
+  url = "nodes/stor/"
   weight = 1
 
   [[Languages.en.menu.main]]
   parent = "Nodes"
   name = "Inner Ring"
-  url = "nodes/ir"
+  url = "nodes/ir/"
   weight = 2
 
 
 [[Languages.en.menu.main]]
 name = "Integrations"
-url = "gw"
+url = "gw/"
 weight = 3
 
 
 [[Languages.en.menu.main]]
 name = "SDK & API"
-url = "api"
+url = "api/"
 weight = 4
 
 [[Languages.en.menu.main]]
 name = "HOWTO"
-url = "howto"
+url = "howto/"
 weight = 5
