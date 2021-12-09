@@ -1,6 +1,6 @@
 ---
 title: "Storage nodes"
-icon: "ti-direction-alt"
+icon: "ti-harddrives"
 description: "Storage nodes and how to use them"
 type: "docs"
 date: "2021-12-07"

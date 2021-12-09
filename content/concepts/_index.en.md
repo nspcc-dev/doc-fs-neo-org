@@ -1,7 +1,7 @@
 ---
 title: "NeoFS Concepts"
-icon: "ti-direction-alt"
-description: ""
+icon: "ti-blackboard"
+description: "Get familiar with basic NeoFS concepts"
 type: "docs"
 date: "2021-12-07"
 ---

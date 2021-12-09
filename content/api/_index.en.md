@@ -1,6 +1,6 @@
 ---
 title: "API & SDK"
-icon: "ti-direction-alt"
+icon: "ti-panel"
 description: "API and SDK implementations"
 type: "docs"
 date: "2021-12-07"
