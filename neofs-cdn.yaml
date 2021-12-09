@@ -5,5 +5,5 @@ deploy:
   nicename:  # Specify container nicename in CDN zone, requires additional fee
   placement_policy: "REP 3" # Specify placement policy if prefer to create new container (default "REP 3")
   basic_acl: 0x1fbf8cff # Specify basic acl for new container (default read-only "0x1FBF8CFF")
-source:
+source: 
   local: public

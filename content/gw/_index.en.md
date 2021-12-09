@@ -1,8 +1,8 @@
 ---
-title: "Protocol gateways"
+title: "Integrations"
 icon: "ti-direction-alt"
 description: "NeoFS Protocol gateways, how they work and what they are for"
-type : "docs"
+type: "docs"
 date: "2021-12-07"
 ---
 

@@ -1,9 +1,9 @@
 ################################# Site configuration ###################
-baseURL = 'https://doc.fs.neo.org/'
+baseURL = 'https://testcdn.fs.neo.org/doc/'
 # disable language
 disableLanguages = []
 
-title = 'NeoFS Documentation'
+title = 'NeoFS Docs site'
 theme = 'dot-hugo'
 
 # unsafe html
@@ -49,30 +49,53 @@ copyright = "Copyright &copy; 2018-2021 [NSPCC](https://nspcc.ru/)"
 
 # banner
 [Languages.en.params.banner]
-title = "NeoFS Documentation"
+title = "NeoFS Documentation site"
 subtitle = "Articles and answers from developers and user community"
 #bg_image = "images/header.svg"
 placeholder = "Have a question? Just ask here or enter terms"
 
 ################## english navigation #################
 [[Languages.en.menu.main]]
-name = "Documentation"
-url = "/"
+name = "Concepts"
+url = "concepts"
 weight = 1
 
+  # [[Languages.en.menu.main]]
+  # parent = "Documentation"
+  # name = "Protocol Gateways"
+  # url = "docs/gw"
+  # weight = 1
+
+[[Languages.en.menu.main]]
+name = "Nodes"
+url = "nodes"
+weight = 2
+
   [[Languages.en.menu.main]]
-  parent = "Documentation"
-  name = "Protocol Gateways"
-  url = "gw"
+  parent = "Nodes"
+  name = "Storage"
+  url = "nodes/stor"
   weight = 1
+
+  [[Languages.en.menu.main]]
+  parent = "Nodes"
+  name = "Inner Ring"
+  url = "nodes/ir"
+  weight = 2
+
+
+[[Languages.en.menu.main]]
+name = "Integrations"
+url = "gw"
+weight = 3
+
+
+[[Languages.en.menu.main]]
+name = "SDK & API"
+url = "api"
+weight = 4
 
 [[Languages.en.menu.main]]
 name = "HOWTO"
 url = "howto"
-weight = 2
-
-[[Languages.en.menu.main]]
-  parent = "HOWTO"
-  name = "Site hosting"
-  url = "hosting"
-  weight = 1
+weight = 5
