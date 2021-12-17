@@ -3,5 +3,6 @@
 *.log
 *.lock
 tmp/
+bin/hugo
 
 public/
