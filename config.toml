@@ -60,12 +60,6 @@ name = "Concepts"
 url = "concepts/"
 weight = 1
 
-  # [[Languages.en.menu.main]]
-  # parent = "Documentation"
-  # name = "Protocol Gateways"
-  # url = "docs/gw"
-  # weight = 1
-
 [[Languages.en.menu.main]]
 name = "Nodes"
 url = "nodes/"
@@ -86,7 +80,7 @@ weight = 2
 
 [[Languages.en.menu.main]]
 name = "Integrations"
-url = "gw/"
+url = "integrations/"
 weight = 3
 
 
