@@ -1,5 +1,6 @@
 #!/usr/bin/make -f
 SHELL = bash
+HUGO ?= hugo
 
 PUBDIR = public
 HUGO_VERSION = 0.91.0
@@ -24,5 +25,7 @@ server: submodules bin/hugo
 	@$(HUGO_BIN) server --disableFastRender
 
 submodules:
-	@git submodule init
-	@git submodule update --recursive --remote
+	@cd themes/dot-hugo/ \
+	&& git submodule init \
+	&& git submodule update --recursive --remote \
+	&& cd -
