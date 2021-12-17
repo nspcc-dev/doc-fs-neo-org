@@ -1,6 +1,7 @@
 ---
 title: NeoFS Endpoints
 description: NeoFS and all related endpoints in N3 Mainnet and N3 Testnet
+icon: "ti-link"
 type: docs
 date: 2021-12-15
 ---
