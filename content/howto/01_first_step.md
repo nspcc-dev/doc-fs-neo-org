@@ -1,8 +1,7 @@
 ---
 title: First steps in NeoFS Testnet
 description: Upload first NeoFS object
-type: docs
-date: 2021-12-17
+date: 2021-12-28
 ---
 
 
