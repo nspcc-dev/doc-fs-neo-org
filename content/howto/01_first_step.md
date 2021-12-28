@@ -95,7 +95,7 @@ neo-go wallet nep17 transfer -w {wallet} -r {NEO_ENDPOINT} --from {address} --to
 
 Let’s see the example for our wallet:
 ```BashSession
-$ neo-go wallet nep17 transfer -w wallet.json -r https://rpc1.n3.nspcc.ru:20331 --from NYSRF7zzSQjroLAHR7fkDToPpfeV3gaYHM --to NadZ8YfvkddivcFFkztZgfwxZyKf1acpRF --token GAS --amount 6 
+$ neo-go wallet nep17 transfer -w wallet.json -r https://rpc1.n3.nspcc.ru:20331 --from NYSRF7zzSQjroLAHR7fkDToPpfeV3gaYHM --to NadZ8YfvkddivcFFkztZgfwxZyKf1acpRF --token GAS --amount 100
 Password > 
 b6f933035e0c5f0c8e7817e9a1f786121d07ab2ee657fcc0f7b550fa3d81583c
 ```
@@ -126,7 +126,7 @@ neofs-cli -r {NEOFS_ENDPOINT} -w wallet.json accounting balance
 For example:
 
 ```BashSession
-$ neofs-cli--rpc-endpoint st01.testnet.fs.neo.org:8080 -w wallet.json accounting balance 
+$ neofs-cli --rpc-endpoint st01.testnet.fs.neo.org:8080 -w wallet.json accounting balance 
 Enter password > 
 106.00173390
 ```
@@ -152,7 +152,7 @@ neofs-cli -r {NEOFS_ENDPOINT} -w wallet.json container create --policy 'REP 2 IN
 ```
 
 ```BashSession
-$ neofs-cli -r st1.storage.fs.neo.org:8080 -w wallet.json container create --policy 'REP 2 IN X CBF 2 SELECT 2 FROM F AS X FILTER "Deployed" EQ "NSPCC" AS F' --basic-acl public-read --await
+$ neofs-cli -r st01.testnet.fs.neo.org:8080 -w wallet.json container create --policy 'REP 2 IN X CBF 2 SELECT 2 FROM F AS X FILTER "Deployed" EQ "NSPCC" AS F' --basic-acl public-read --await
 Enter password > 
 container ID: Ec1fAsQbstaVbUHboEEgtFNguCpyBKfTqhcV7NmjVSoJ
 awaiting...
@@ -180,7 +180,8 @@ neofs-cli -r {NEOFS_ENDPOINT} -w wallet.json object put --file {FILE_PATH} --cid
 ```
 
 ```BashSession
-$ neofs-cli -r st1.storage.fs.neo.org:8080 -k L2j3Lqx6rJyBiyxnTUHr6TkwMZQKUTuUChsZBLmbAxYa5Rou2TqH object put --file cat.png --cid Ec1fAsQbstaVbUHboEEgtFNguCpyBKfTqhcV7NmjVSoJ --attributes img_type=cat,my_attr=cute
+$ neofs-cli -r st01.testnet.fs.neo.org:8080 -w wallet.json object put --file cat.png --cid Ec1fAsQbstaVbUHboEEgtFNguCpyBKfTqhcV7NmjVSoJ --attributes img_type=cat,my_attr=cute
+Enter password > 
 [cat.png] 
 Object successfully stored
  ID: 9VbUbR6mGqFU1RdcUR1xUJZpyrPejvVT8fwxtDNCP5xQ
@@ -203,7 +204,8 @@ Now open and check out your cat picture!
 To run search operation you can use different filters by meta information of the objects. For example, you can filter objects by attributes declared in the previous steps:
 
 ```BashSession
-$ neofs-cli -r st1.storage.fs.neo.org:8080 -k L2j3Lqx6rJyBiyxnTUHr6TkwMZQKUTuUChsZBLmbAxYa5Rou2TqH object search --cid Ec1fAsQbstaVbUHboEEgtFNguCpyBKfTqhcV7NmjVSoJ --filters 'img_type EQ cat' --filters 'my_attr EQ cute'
+$ neofs-cli -r st01.testnet.fs.neo.org:8080 -w wallet.json object search --cid Ec1fAsQbstaVbUHboEEgtFNguCpyBKfTqhcV7NmjVSoJ --filters 'img_type EQ cat' --filters 'my_attr EQ cute'
+Enter password > 
 Found 1 objects.
 9VbUbR6mGqFU1RdcUR1xUJZpyrPejvVT8fwxtDNCP5xQ
 ```
