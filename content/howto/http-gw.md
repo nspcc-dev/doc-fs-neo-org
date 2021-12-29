@@ -6,7 +6,7 @@ date: 2021-12-28
 
 ## Obtain
 
-You can find the gateway [on GitHub](https://github.com/nspcc-dev/neofs-http-gw) and get [the latest release](https://github.com/nspcc-dev/neofs-http-gw/releases) in a standard way (single binary). However, if you prefer dockerized setup, we have this option covered as well [with Docker Hub](https://hub.docker.com/r/nspccdev/neofs-http-gw).
+You can find the gateway [on GitHub](https://github.com/nspcc-dev/neofs-http-gw) and get [the latest release](https://github.com/nspcc-dev/neofs-http-gw/releases) as a binary. However, if you prefer dockerized setup, we have this option covered as well [with Docker Hub](https://hub.docker.com/r/nspccdev/neofs-http-gw).
 
 
 ## Run
@@ -29,13 +29,13 @@ $ HTTP_GW_WALLET_PASSPHRASE=password neofs-http-gw -p 192.168.130.72:8080 --wall
 
 ## Access
 
-To get an object via HTTP, you can use `/get/$CID/$OID` path where `$CID` is a container ID and `$OID` is an object ID. If your cat is stored as `2m8PtaoricLouCn5zE8hAFr3gZEBDCZFe9BEgVJTSocY` in `J9VuqGJM16Cx6dxbEtHZtywgYmrHgLAYY3821G1UMY1g` you can obtain it as following
+To get an object via HTTP, you can use `/get/$CID/$OID` path where `$CID` is a container ID and `$OID` is an object ID. If your object with ID `2m8PtaoricLouCn5zE8hAFr3gZEBDCZFe9BEgVJTSocY` is stored in container with ID `J9VuqGJM16Cx6dxbEtHZtywgYmrHgLAYY3821G1UMY1g` you can obtain it as following
 
 ```
 $ wget http://localhost:8082/get/J9VuqGJM16Cx6dxbEtHZtywgYmrHgLAYY3821G1UMY1g/2m8PtaoricLouCn5zE8hAFr3gZEBDCZFe9BEgVJTSocY
 ```
 
-Yet, sometimes you want to get more user-friendly access, especially if you're developing an application that needs to take assets from NeoFS and present them to user. You may have lots of named objects, and you don't always know what their object IDs are. NeoFS objects don't really have names. Otherwise, they have attributes, and you can set as many attributes for an object as you wish. Some of them are so-called "well-known" attributes, like `FileName` which is used to store object's file name. But sky is the limit here! Any kind of string can be an attribute name, and any kind of string can be its value (beware of HTTP limitations, though, and try to fit all of this into regular ASCII).
+Yet, sometimes you want to get more user-friendly access, especially if you're developing an application that needs to take assets from NeoFS and present them to users. You may have lots of named objects, and you don't always know what their object IDs are. NeoFS objects don't really have names. Otherwise, they have attributes, and you can set as many attributes for an object as you wish. Some of them are so-called "well-known" attributes, like `FileName` which is used to store object's file name. But sky is the limit here! Any kind of string can be an attribute name, and any kind of string can be its value (beware of HTTP limitations, though, and try to fit all of this into regular ASCII).
 
 So if you have attributes set for your objects, you can also use`/get_by_attribute/$CID/$ATTRIBUTE_NAME/$ATTRIBUTE_VALUE` path to get them, where `$CID` is still a container ID while `$ATTRIBUTE_NAME` and `$ATTRIBUTE_VALUE` are the name and the value of the attribute you're looking for. The gateway will answer with the first object matching this name-value pair (technically, there can be multiple objects matching this criterion).
 
@@ -45,10 +45,10 @@ If your `2m8PtaoricLouCn5zE8hAFr3gZEBDCZFe9BEgVJTSocY` object from the example a
 $ wget http://localhost:8082/get_by_attribute/J9VuqGJM16Cx6dxbEtHZtywgYmrHgLAYY3821G1UMY1g/FileName/cat.jpeg
 ```
 
-If it has `Ololo` attribute with `100500` value, you can get it this way too:
+If it has `CustomAttribute` attribute with `SomeValue` value, you can get it this way too:
 
 ```
-$ wget http://localhost:8082/get_by_attribute/J9VuqGJM16Cx6dxbEtHZtywgYmrHgLAYY3821G1UMY1g/Ololo/100500
+$ wget http://localhost:8082/get_by_attribute/J9VuqGJM16Cx6dxbEtHZtywgYmrHgLAYY3821G1UMY1g/CustomAttribute/SomeValue
 ```
 
 ### Zip streaming
@@ -64,10 +64,10 @@ $ wget http://localhost:8082/zip/J9VuqGJM16Cx6dxbEtHZtywgYmrHgLAYY3821G1UMY1g/co
 
 ## Upload
 
-NeoFS HTTP Protocol Gateway is not just for downloading things from NeoFS, you can also put new objects via `/upload/$CID` URL where `$CID` is a container ID. FileName attribute is set automatically in this case based on uploaded file name, but you can also manually add as many attributes as you like:
+NeoFS HTTP Gateway is not just for downloading things from NeoFS, you can also put new objects via `/upload/$CID` URL where `$CID` is a container ID. FileName attribute is set automatically in this case based on uploaded file name, but you can also manually add as many attributes as you like:
 
 ```
-$ curl -F 'file=@cat.jpeg;filename=cat.jpeg' -H "X-Attribute-Ololo: 100500" http://localhost:8082/upload/J9VuqGJM16Cx6dxbEtHZtywgYmrHgLAYY3821G1UMY1g
+$ curl -F 'file=@cat.jpeg;filename=cat.jpeg' -H "X-Attribute-CustomAttribute: SomeValue" http://localhost:8082/upload/J9VuqGJM16Cx6dxbEtHZtywgYmrHgLAYY3821G1UMY1g
 ```
 
 You'd get container and object IDs in reply for this request.
@@ -81,7 +81,7 @@ What you can do instead is use delegation mechanism known as Bearer Tokens provi
 
 ![http gw wrap scheme](../../images/http-gw-wrap.png)
 
-You may have noticed that the API provided by the gateway natively differs a little from the URL scheme given in our previous post. That's because we expect most of the real setups to be using some proxy server (or servers) in front of the gateway, providing caching, URL rewriting, and TLS termination if needed (although TLS can be handled by the gateway itself if needed). For example, in the previous article, we've used nginx as a caching proxy with some URL rewriting to make access to objects more web-native. First, we made direct pass of simple `GET` request to `/get/` location:
+You may have noticed that the API provided by the gateway natively differs a little from the URL scheme in public HTTP Gateways or CDN in the N3 Testnet. That's because we expect most of the real setups to be using some proxy server (or servers) in front of the gateway, providing caching, URL rewriting, and TLS termination if needed (although TLS can be handled by the gateway itself if needed). You can use nginx as a caching proxy with some URL rewriting to make access to objects more web-native. To do that, make direct pass of simple `GET` request to `/get/` location:
 
 ```
 location  ~ "^/[0-9a-zA-Z]{43,44}/[0-9a-zA-Z\-]{43,44}$" {
