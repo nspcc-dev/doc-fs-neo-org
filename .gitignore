@@ -6,3 +6,4 @@ tmp/
 bin/hugo
 
 public/
+resources/_gen
