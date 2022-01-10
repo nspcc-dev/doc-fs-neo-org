@@ -194,8 +194,6 @@ To get the object, you can use the command with either any key (in case of publi
 neofs-cli {NEOFS_ENDPOINT} -w wallet.json object get --cid {CONTAINER_ID} --oid {OBJECT_ID} --file {PATH_TO_FILE}
 ```
 
-Now open and check out your cat picture!
-
 ### Search for objects with some specific attributes in the container
 
 To run search operation you can use different filters by meta information of the objects. For example, you can filter objects by attributes declared in the previous steps:
