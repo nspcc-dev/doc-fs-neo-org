@@ -7,13 +7,12 @@ date: 2021-12-28
 
 ### Create Wallet
 
-Let’s start with NeoFS СLI description and how to take the first steps.
 First of all, you need to create a wallet and request N3 Testnet GAS tokens.
 
-* Get Neo-Go (will be used here) or [Neo-CLI](https://docs.neo.org/docs/en-us/node/cli/setup.html) to work with N3 Network.Neo-Go’s latest releases are available [here](https://github.com/nspcc-dev/neo-go/releases).
+* Get Neo-Go (will be used here). Neo-Go’s latest releases are available [here](https://github.com/nspcc-dev/neo-go/releases).  All wallet-related actions can be done with other wallet apps, [here](https://neo.org/neogas#wallets) you can find more information.
 
 ```BashSession
-$ wget https://github.com/nspcc-dev/neo-go/releases/download/v0.98.0/neo-go-linux-amd64 -O neo-go https://github.com/nspcc-dev/neo-go/releases/download/v0.98.0/neo-go-linux-amd64
+$ wget https://github.com/nspcc-dev/neo-go/releases/download/v0.98.0/neo-go-linux-amd64 -O neo-go
 
 $ chmod +x neo-go
 
@@ -65,10 +64,9 @@ wallet successfully created, file location is new_wallet.json
  
 ```
 
-* To get wallet information and WIF, you can use such command as:
+* To get wallet address and public key, you can use such command as:
 ```BashSession
-$ neo-go wallet dump -w new_wallet.json
-$ neo-go wallet export -w new_wallet.json --decrypt {ADDRESS}
+$ neo-go wallet dump-keys -w new_wallet.json
 ```
 
 Now you can request N3 Testnet GAS via the NGD N3 TestNet faucet.
@@ -136,13 +134,15 @@ In NeoFS, users put their data into Containers. Containers are like folders in a
 
 The policy can use nodes attributes as follows, “Store data in three different countries on two different continents in three copies on nodes with SSD disks and good reputation.” Storage nodes will do their best to keep data in accordance with this policy. Otherwise, they will not get paid for their service.
 
-To create a container, one has to set Storage Policy via neofs-cli command. We will describe the storage policy in more detail in the following articles. For now, we will give a simple example of storing several copies of data on random storage nodes. For instance, to store an object in 3 copies, we should declare such policy as `REP 3`. 
+To create a container, one has to set Storage Policy via neofs-cli command. For now, we will give a simple example of storing several copies of data on random storage nodes. For instance, to store an object in 3 copies, we should declare such policy as `REP 3`. 
 
-On testnet, anyone can easily add and kill their own node, as this network is designed for testing and development. Therefore, we recommend for the first time to create a container with the storage rule `'REP 2 IN X CBF 2 SELECT 2 FROM F AS X FILTER "Deployed" EQ "NSPCC" AS F'`.
+On testnet, anyone can easily add and kill their own node, as this network is designed for testing and development. Therefore, we recommend for the first time to create a container with the storage rule `'REP 2 IN X CBF 2 SELECT 2 FROM F AS X FILTER "Deployed" EQ "NSPCC" AS F'`. Such placement policy stores objects on nodes which are deployed by NeoSPCC.
 
-In our example, we will use predefined private, public-read, or public-read-write basic Access Control Lists (ACL) rules. In a public container, everyone can read and write objects to the container; in a private container, only the owner of the container can execute read and write operations. In a read-only container, only the owner can write to the container, but anyone can read data from it.
-
-Let’s create a public-read container.
+There are several predefined basic Access Control Lists (ACL): 
+- private,
+- public-read,
+- public-read-write.
+In a public container, everyone can read and write objects to the container; in a private container, only the owner of the container can execute read and write operations. In a read-only container, only the owner can write to the container, but anyone can read data from it. In our example, we will use predefined public-read basic ACL. 
 
 To do it, we should execute neofs-cli command as follows:
 
@@ -166,20 +166,18 @@ Once the container is created, we can upload data to the NeoFS network.
 
 ### Upload a cat to NeoFS
 
-Let’s get a cute cat picture: cat.png. 
-
 To put the object in our container, we should execute the neofs-cli command. 
 
 We can also add some user headers to the object to run search operations by specific filters in the future. 
 
-We want to set `img_type` as `cat` and `my_attr` as `cute`.
+We want to set `content_tag` as `cat` and `my_attr` as `cute`.
 
 ```BashSession
-neofs-cli -r {NEOFS_ENDPOINT} -w wallet.json object put --file {FILE_PATH} --cid {CONTAINER_ID} --attributes img_type=cat,my_attr=cute
+neofs-cli -r {NEOFS_ENDPOINT} -w wallet.json object put --file {FILE_PATH} --cid {CONTAINER_ID} --attributes content_tag=cat,my_attr=cute
 ```
 
 ```BashSession
-$ neofs-cli -r st01.testnet.fs.neo.org:8080 -w wallet.json object put --file cat.png --cid Ec1fAsQbstaVbUHboEEgtFNguCpyBKfTqhcV7NmjVSoJ --attributes img_type=cat,my_attr=cute
+$ neofs-cli -r st01.testnet.fs.neo.org:8080 -w wallet.json object put --file cat.png --cid Ec1fAsQbstaVbUHboEEgtFNguCpyBKfTqhcV7NmjVSoJ --attributes content_tag=cat,my_attr=cute
 Enter password > 
 [cat.png] 
 Object successfully stored
@@ -208,14 +206,3 @@ Enter password >
 Found 1 objects.
 9VbUbR6mGqFU1RdcUR1xUJZpyrPejvVT8fwxtDNCP5xQ
 ```
-
-### Conclusion
-
-Today, you have taken your first steps in NeoFS and tried the simplest object operations. Our next articles will cover how to use Storage Policies, set complex ACLs and exceptions for them, how to work with S3 gates, and more. Be with us and enjoy your storage experience.
-
-Remember, though, that it is Testnet. If you have any problems, mail us via `ops@nspcc.ru` or file issues on Github. Also, be aware that depending on the capacity of the test network and production needs, we can periodically clear all data stored in N3 TestNet.
-
-{{% notice note %}}
-The service is designed for individuals 18 years of age or older. As a user of the service, you undertake to follow these terms of service and be responsible for all activities and content you post/upload. 
-In addition to following these terms of service, you are responsible for adhering to all applicable local and national laws. NEO SPCC is not responsible for the content uploaded by users.
-{{% /notice %}}
