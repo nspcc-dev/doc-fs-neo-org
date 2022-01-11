@@ -164,13 +164,13 @@ Container ID for your data is `Ec1fAsQbstaVbUHboEEgtFNguCpyBKfTqhcV7NmjVSoJ`.
 
 Once the container is created, we can upload data to the NeoFS network.
 
-### Upload a cat to NeoFS
+### Upload a file to NeoFS
 
 To put the object in our container, we should execute the neofs-cli command. 
 
 We can also add some user headers to the object to run search operations by specific filters in the future. 
 
-We want to set `content_tag` as `cat` and `my_attr` as `cute`.
+We will set `content_tag` as `cat` and `my_attr` as `cute` for example.
 
 ```BashSession
 neofs-cli -r {NEOFS_ENDPOINT} -w wallet.json object put --file {FILE_PATH} --cid {CONTAINER_ID} --attributes content_tag=cat,my_attr=cute
@@ -186,7 +186,7 @@ Object successfully stored
 
 ```
 
-### Get your cat or share it with friends
+### Get your file or share it with friends
 
 To get the object, you can use the command with either any key (in case of public container) or an owner key (in case of private container):
 
