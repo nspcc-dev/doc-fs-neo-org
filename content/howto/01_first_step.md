@@ -118,7 +118,7 @@ To get NeoFS balance, execute the command below
 neofs-cli -r {NEOFS_ENDPOINT} -w wallet.json accounting balance
 ```
 
-* {NEOFS_ENDPOINT} — any NeoFS node (e.g., st01.testnet.fs.neo.org:8080. Actual endpoints information is available [here](https://testcdn.fs.neo.org/doc/integrations/endpoints/))
+* {NEOFS_ENDPOINT} — any NeoFS node. Actual endpoints information is available [here](https://testcdn.fs.neo.org/doc/integrations/endpoints/).
 
 For example:
 
