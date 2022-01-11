@@ -92,7 +92,7 @@ neo-go wallet nep17 transfer -w {wallet} -r {NEO_ENDPOINT} --from {address} --to
 
 Let’s see the example for our wallet:
 ```BashSession
-$ neo-go wallet nep17 transfer -w wallet.json -r https://rpc1.n3.nspcc.ru:20331 --from NYSRF7zzSQjroLAHR7fkDToPpfeV3gaYHM --to NadZ8YfvkddivcFFkztZgfwxZyKf1acpRF --token GAS --amount 100
+$ neo-go wallet nep17 transfer -w wallet.json -r https://rpc1.n3.nspcc.ru:20331 --from NYSRF7zzSQjroLAHR7fkDToPpfeV3gaYHM --to NadZ8YfvkddivcFFkztZgfwxZyKf1acpRF --token GAS --amount 10
 Password > 
 b6f933035e0c5f0c8e7817e9a1f786121d07ab2ee657fcc0f7b550fa3d81583c
 ```
@@ -100,7 +100,7 @@ b6f933035e0c5f0c8e7817e9a1f786121d07ab2ee657fcc0f7b550fa3d81583c
 Now, look at your N3 balance:
 ![N3 Testnet GAS balance](../../images/first_step_2.png)
 
-As you see, we have transferred 100 GAS + network fee for a smart contract calling.
+As you see, we have transferred 10 GAS + network fee for a smart contract calling.
 
 ### Check NeoFS balance
 
@@ -109,7 +109,7 @@ Get it binary from the latest release [here](https://github.com/nspcc-dev/neofs-
 
 ```BashSession
 $ wget https://github.com/nspcc-dev/neofs-node/releases/download/v0.27.0/neofs-cli-amd64 -O neofs-cli
-chmod +x neofs-cli
+$ chmod +x neofs-cli
 ```
 
 To get NeoFS balance, execute the command below
@@ -118,7 +118,7 @@ To get NeoFS balance, execute the command below
 neofs-cli -r {NEOFS_ENDPOINT} -w wallet.json accounting balance
 ```
 
-* {NEOFS_ENDPOINT} — any NeoFS node (e.g., st01.testnet.fs.neo.org:8080)
+* {NEOFS_ENDPOINT} — any NeoFS node (e.g., st01.testnet.fs.neo.org:8080. Actual endpoints information is available [here](https://testcdn.fs.neo.org/doc/integrations/endpoints/))
 
 For example:
 
