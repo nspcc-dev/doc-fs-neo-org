@@ -9,7 +9,7 @@ date: 2021-12-28
 
 First of all, you need to create a wallet and request N3 Testnet GAS tokens.
 
-* Get Neo-Go (will be used here). Neo-Go’s latest releases are available [here](https://github.com/nspcc-dev/neo-go/releases).  All wallet-related actions can be done with other wallet apps, [here](https://neo.org/neogas#wallets) you can find more information.
+* Get NeoGo (will be used here). NeoGo’s latest releases are available [here](https://github.com/nspcc-dev/neo-go/releases).  All wallet-related actions can be done with other wallet apps, [here](https://neo.org/neogas#wallets) you can find more information.
 
 ```BashSession
 $ wget https://github.com/nspcc-dev/neo-go/releases/download/v0.98.0/neo-go-linux-amd64 -O neo-go
@@ -59,8 +59,6 @@ Confirm passphrase >
  		"Tokens": null
  	}
  }
-
-wallet successfully created, file location is new_wallet.json
  
 ```
 
@@ -142,7 +140,8 @@ There are several predefined basic Access Control Lists (ACL):
 - private,
 - public-read,
 - public-read-write.
-In a public container, everyone can read and write objects to the container; in a private container, only the owner of the container can execute read and write operations. In a read-only container, only the owner can write to the container, but anyone can read data from it. In our example, we will use predefined public-read basic ACL. 
+
+In a `public-read-write` container, everyone can read and write objects to the container; in a `private` container, only the owner of the container can execute read and write operations. In a `public-read` (read-only) container, only the owner can write to the container, but anyone can read data from it. In our example, we will use predefined `public-read` basic ACL. 
 
 To do it, we should execute neofs-cli command as follows:
 
@@ -199,7 +198,7 @@ neofs-cli {NEOFS_ENDPOINT} -w wallet.json object get --cid {CONTAINER_ID} --oid 
 To run search operation you can use different filters by meta information of the objects. For example, you can filter objects by attributes declared in the previous steps:
 
 ```BashSession
-$ neofs-cli -r st01.testnet.fs.neo.org:8080 -w wallet.json object search --cid Ec1fAsQbstaVbUHboEEgtFNguCpyBKfTqhcV7NmjVSoJ --filters 'img_type EQ cat' --filters 'my_attr EQ cute'
+$ neofs-cli -r st01.testnet.fs.neo.org:8080 -w wallet.json object search --cid Ec1fAsQbstaVbUHboEEgtFNguCpyBKfTqhcV7NmjVSoJ --filters 'content_tag EQ cat' --filters 'my_attr EQ cute'
 Enter password > 
 Found 1 objects.
 9VbUbR6mGqFU1RdcUR1xUJZpyrPejvVT8fwxtDNCP5xQ
