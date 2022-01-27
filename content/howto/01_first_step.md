@@ -84,13 +84,13 @@ neo-go wallet nep17 transfer -w {wallet} -r {NEO_ENDPOINT} --from {address} --to
 
 * {wallet} — path to your N3 wallet
 * {address} — N3 address
-* {NEO_ENDPOINT} — any N3 node (e.g., https://rpc1.n3.nspcc.ru:20331)
+* {NEO_ENDPOINT} — any N3 node (e.g., https://rpc01.testnet.n3.nspcc.ru:21331)
 * {NEOFS_CONTRACT_ADDRESS} — NeoFS contract address is NadZ8YfvkddivcFFkztZgfwxZyKf1acpRF in the current N3 Testnet version
 * {amount} — number of gas tokens to add to the NeoFS balance
 
 Let’s see the example for our wallet:
 ```BashSession
-$ neo-go wallet nep17 transfer -w wallet.json -r https://rpc1.n3.nspcc.ru:20331 --from NYSRF7zzSQjroLAHR7fkDToPpfeV3gaYHM --to NadZ8YfvkddivcFFkztZgfwxZyKf1acpRF --token GAS --amount 10
+$ neo-go wallet nep17 transfer -w wallet.json -r https://rpc01.testnet.n3.nspcc.ru:21331 --from NYSRF7zzSQjroLAHR7fkDToPpfeV3gaYHM --to NadZ8YfvkddivcFFkztZgfwxZyKf1acpRF --token GAS --amount 10
 Password > 
 b6f933035e0c5f0c8e7817e9a1f786121d07ab2ee657fcc0f7b550fa3d81583c
 ```
