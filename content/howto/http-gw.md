@@ -1,6 +1,8 @@
 ---
-title: "Get your own NeoFS HTTP Gateway"
+title: Get your own NeoFS HTTP Gateway
+description: Setup your own HTTP Gateway instance
 date: 2021-12-28
+weight: 2
 ---
 
 
