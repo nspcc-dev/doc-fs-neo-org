@@ -1,8 +1,6 @@
 ---
 title: "Introduction"
-icon: "ti-blackboard"
 description: "Get familiar with basic NeoFS concepts"
-type: "docs"
 date: "2022-03-01"
 weight: 1
 ---
