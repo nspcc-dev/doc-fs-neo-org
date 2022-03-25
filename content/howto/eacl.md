@@ -32,7 +32,7 @@ Let’s take a Public Container (“0x1FFFFF”) where anyone can do anything: g
 Although it can be written manually, we have introduced a special command for `neofs-cli acl`. Now, with `neofs-cli acl extended create` you can create a JSON file consisting of any rules in a more user-friendly manner. Set the container’s ID with `--cid` flag and then state all the rules you need for the container with `-r` flag. In the case above, your command should be
 
 ```BashSession
-neofs-cli acl extended create --cid <container’s ID> -r “deny delete others” --out table.json
+neofs-cli acl extended create --cid <container’s ID> -r 'deny delete others' --out table.json
 ```
 
 Here you state the action (which is either `deny` or `allow`), the operation affected by the action, and the target i.e. the user or a group of users for whom this operation is denied/allowed.
@@ -54,7 +54,7 @@ Then, the interesting part begins. If one wants to deny an operation over certai
 As a result, we use the command bellow (available since [neofs-cli v0.27.5](https://github.com/nspcc-dev/neofs-node/releases/tag/v0.27.5))
 
 ```BashSession
-neofs-cli acl extended create --cid <container’s ID> --file rule.txt -r “deny get obj:objectID=<OID> pubkey:<PubKey>”  --out table.json
+neofs-cli acl extended create --cid <container’s ID> --file rule.txt -r 'deny get obj:$Object:objectID=<OID> pubkey:<PubKey>'  --out table.json
 ```
 
 Check the example below to see what the resulting JSON should look like
@@ -141,12 +141,16 @@ For more details about `acl extended create` commands use `--help` flag.
 Now, you see how to be truely in control of your data in NeoFS. Follow the instruction above and manage access to your files. Create eACL's to deny (or allow) certain operations to certain groups of users. Feel free to change your mind and generate new eACL's according to your new life circumstances. Just don't forget to set them anew!
 
 ```BashSession
-neofs-cli acl extended create --cid <container’s ID> -f rules.txt -r “deny get others” --out table.json
+neofs-cli acl extended create --cid <container’s ID> -f rules.txt -r 'deny get others' --out table.json
 neofs-cli --rpc-endpoint <remote node address> -w <container owner’s wallet> container set-eacl --cid <CID> --table <path to JSON file with eACL> --await
 ```
 
 
 \* PublicKey can be found with the following commands:
 ```BashSession
-neo-go wallet dump-keys -w <wallet>` or `neofs-cli util keyer <wif>
+neo-go wallet dump-keys -w <wallet>
+```
+or
+```BashSession
+neofs-cli util keyer <wif>
 ```
