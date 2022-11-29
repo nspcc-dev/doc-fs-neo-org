@@ -1,3 +1,4 @@
 [submodule "themes/dot-hugo"]
 	path = themes/dot-hugo
-	url = git@github.com:themefisher/dot-hugo.git
+	url = git@github.com:nspcc-dev/dot-hugo.git
+	branch = neo_design_version
