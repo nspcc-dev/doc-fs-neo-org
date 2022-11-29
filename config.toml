@@ -16,15 +16,15 @@ unsafe = true
 logo = 'images/NeoFS.svg'
 
 # customize color
-primary_color = "#02007e"
+primary_color = "#00e599"
 body_color = "#f9f9f9"
-text_color = "#636363"
-text_color_dark = "#242738"
+text_color = "#003"
+text_color_dark = "#003"
 white_color = "#ffffff"
 light_color = "#f8f9fa"
 
 # font family
-font_family = "lato" # Choose font family from : https://fonts.google.com/
+font_family = "WorkSans" # Choose font family from : https://fonts.google.com/
 
 # contact form action
 contact_form_action = "#" # contact form works with : https://formspree.io
@@ -45,7 +45,7 @@ link = "https://twitter.com/neospcc"
 languageName = "En"
 languageCode = "en-us"
 weight = 1
-copyright = "Copyright &copy; 2018-2021 [NSPCC](https://nspcc.ru/)"
+copyright = "Copyright &copy; [NSPCC](https://nspcc.ru/) 2018-2021"
 
 # banner
 [Languages.en.params.banner]
