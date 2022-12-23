@@ -12,7 +12,7 @@
 
 Welcome to the NeoFS Documentation site repository!
 
-This is a [NeoSPCC](https://nspcc.ru/en) maintained and community supported
+This is a [NeoSPCC](https://nspcc.io/) maintained and community supported
 NeoFS documentation project, where everyone can contribute new articles, suggest
 new topics and enhance existing content.
 
