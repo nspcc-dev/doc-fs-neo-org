@@ -45,7 +45,7 @@ link = "https://twitter.com/neospcc"
 languageName = "En"
 languageCode = "en-us"
 weight = 1
-copyright = "Copyright &copy; [NSPCC](https://nspcc.io/) 2018-2022"
+copyright = "Copyright &copy; [NSPCC](https://nspcc.io/) 2018-2023"
 
 # banner
 [Languages.en.params.banner]
