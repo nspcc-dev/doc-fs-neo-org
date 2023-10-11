@@ -12,28 +12,20 @@ NeoFS contract deployed in the main chain and used for deposit and withdrawal op
 
 {{< tabs >}}
     {{< tab "N3 Mainnet" >}}
-        <table style="font-size: 14px">
-            <tr>
-                <td style="background-color:#ececec"><b>Address</b></td>
-                <td style="background-color:#ececec"><b>Script hash</b></td>
-            </tr>
-            <tr>
-                <td>NNxVrKjLsRkWsmGgmuNXLcMswtxTGaNQLk</td>
-                <td>2cafa46838e8b564468ebd868dcafdd99dce6221</td>
-            </tr>
-        </table>
+        <p>
+            <b>Address</b>: NNxVrKjLsRkWsmGgmuNXLcMswtxTGaNQLk
+        </p>
+        <p style="margin: 0;">
+            <b>Script hash</b>: 2cafa46838e8b564468ebd868dcafdd99dce6221
+        </p>
     {{< /tab >}}
     {{< tab "N3 Testnet" >}}
-        <table style="font-size: 14px">
-            <tr>
-                <td style="background-color:#ececec"><b>Address</b></td>
-                <td style="background-color:#ececec"><b>Script hash</b></td>
-            </tr>
-            <tr>
-                <td>NadZ8YfvkddivcFFkztZgfwxZyKf1acpRF</td>
-                <td>b65d8243ac63983206d17e5221af0653a7266fa1</td>
-            </tr>
-        </table>
+        <p>
+            <b>Address</b>: NadZ8YfvkddivcFFkztZgfwxZyKf1acpRF
+        </p>
+        <p style="margin: 0;">
+            <b>Script hash</b>: b65d8243ac63983206d17e5221af0653a7266fa1
+        </p>
     {{< /tab >}}
 {{</ tabs >}}
 
